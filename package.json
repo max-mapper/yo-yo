@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/maxogden/yo-yo#readme",
   "dependencies": {
-    "bel": "^4.0.0",
+    "hyperx": "^2.0.2",
+    "bel": "shama/bel#yo-yo",
     "morphdom": "^1.1.2"
   }
 }
