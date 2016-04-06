@@ -22,6 +22,7 @@
     "morphdom": "^1.1.2"
   },
   "devDependencies": {
+    "tape": "^4.5.1",
     "wzrd": "^1.3.1"
   }
 }
