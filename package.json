@@ -1,6 +1,6 @@
 {
   "name": "yo-yo",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "A tiny library for building modular UI components using DOM diffing and ES6 tagged template literals",
   "main": "index.js",
   "scripts": {
