@@ -28,7 +28,7 @@ module.exports.update = function (fromNode, toNode, opts) {
     }
     // copy values for form elements
     if (f.nodeName === 'INPUT' || f.nodeName === 'TEXTAREA' || f.nodeNAME === 'SELECT') {
-      t.value = f.value
+      if (t.getAttribute('value') === null) t.value = f.value
     }
   }
 }
