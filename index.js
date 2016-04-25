@@ -8,14 +8,15 @@ module.exports = bel
 module.exports.update = function (fromNode, toNode, opts) {
   if (!opts) opts = {}
   if (opts.events !== false) {
-    if (!opts.onBeforeMorphEl) opts.onBeforeMorphEl = copyEvents
+    if (!opts.onBeforeMorphEl) opts.onBeforeMorphEl = copier
   }
 
   morphdom(fromNode, toNode, opts)
 
   // morphdom only copies attributes. we decided we also wanted to copy events
   // that can be set via attributes
-  function copyEvents (f, t) {
+  function copier (f, t) {
+    // copy events:
     var events = opts.events || defaultEvents
     for (var i = 0; i < events.length; i++) {
       var ev = events[i]
@@ -24,6 +25,10 @@ module.exports.update = function (fromNode, toNode, opts) {
       } else if (f[ev]) { // if existing element has it and new one doesnt
         f[ev] = undefined // remove it from existing element
       }
+    }
+    // copy values for form elements
+    if (f.nodeName === 'INPUT' || f.nodeName === 'TEXTAREA' || f.nodeNAME === 'SELECT') {
+      t.value = f.value
     }
   }
 }
