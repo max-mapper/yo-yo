@@ -11,7 +11,7 @@ module.exports.update = function (fromNode, toNode, opts) {
     if (!opts.onBeforeMorphEl) opts.onBeforeMorphEl = copier
   }
 
-  morphdom(fromNode, toNode, opts)
+  return morphdom(fromNode, toNode, opts)
 
   // morphdom only copies attributes. we decided we also wanted to copy events
   // that can be set via attributes
