@@ -36,3 +36,12 @@ test('custom event listeners and properties are ignored', function (t) {
   el.dispatchEvent(new Event('foobar'))
   el.click()
 })
+
+test('input values get copied', function (t) {
+  t.plan(1)
+  var el = yo`<input type="text" />`
+  el.value = 'hi'
+  var newEl = yo`<input type="text" />`
+  yo.update(el, newEl)
+  t.equal(el.value, 'hi')
+})
