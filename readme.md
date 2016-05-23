@@ -45,7 +45,7 @@ Returns the `yo` function. There is also a method on `yo` called `yo.update`.
 
 `yo` is a function designed to be used with [tagged template literals](#tagged-template-literals). If your template produces a string containing an HTML element, the `yo` function will take it and produce a new DOM element that you can insert into the DOM.
 
-### yo.update(targetElement, newElement, <opts>)
+### yo.update(targetElement, newElement, [opts])
 
 Efficiently updates the attributes and content of an element by [diffing and morphing](#morphdom) a new element onto an existing target element. The two elements + their children should have the same 'shape', as the diff between `newElement` will replace nodes in `targetElement`. `targetElement` will get efficiently updated with only the new DOM nodes from `newElement`, and `newElement` can be discarded afterwards.
 
