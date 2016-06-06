@@ -2,6 +2,8 @@
 
 A tiny library for building modular UI components using [DOM diffing](#morphdom) and [ES6 tagged template literals](#tagged-template-literals), powered by [bel](https://www.npmjs.com/package/bel) and [morphdom](https://www.npmjs.com/package/morphdom) and based on the "yo-yo" data binding pattern: data down, actions up. 
 
+yo-yo powers the [choo framework](https://github.com/yoshuawuyts/choo), you should check it out if you want something higher level! or if you want lower level, see the module that powers yo-yo: [bel](https://www.npmjs.com/package/bel)
+
 ![logo](yoyojs.png)
 
 Getting started is as easy as <pre>var element = yo\`&lt;h1&gt;hello world!&lt;/h1&gt;\`</pre>
