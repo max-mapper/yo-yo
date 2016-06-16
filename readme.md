@@ -31,7 +31,7 @@ In this way `yo-yo` is similar to the modular frameworks [mississippi](https://w
 
 ## Installing
 
-You can get it [from npm](http://npmjs.org/yo-yo): `npm install yo-yo`
+You can get it [from npm](https://npmjs.org/package/yo-yo): `npm install yo-yo`
 
 To create a standalone copy run `browserify -r yo-yo > yo-yo.js`
 
@@ -168,13 +168,13 @@ This works because [we explicitly copy common event attributes](update-events.js
 
 The functionality built in to `yo-yo` covers the same problems as React and JSX, (DOM diffing and templating), using these dependencies of `yo-yo`:
 
-- [bel](https://npmjs.org/bel) - creates DOM elements from template strings
-- [morphdom](https://npmjs.org/morphdom) - efficiently morphs DOM elements (without a virtual DOM)
+- [bel](https://npmjs.org/package/bel) - creates DOM elements from template strings
+- [morphdom](https://npmjs.org/package/morphdom) - efficiently morphs DOM elements (without a virtual DOM)
 
 However you might consider these alternatives to the above built-in choices based on your use case:
 
-- [hyperscript](https://npmjs.com/hyperscript) - alternative to template literals
-- [diffhtml](https://npmjs.com/diffhtml) - alternative to morphdom
+- [hyperscript](https://npmjs.com/package/hyperscript) - alternative to template literals
+- [diffhtml](https://npmjs.com/package/diffhtml) - alternative to morphdom
 
 There are also UI problems that `yo-yo` does not currently address, such as events. But it's easy to use other modules alongside `yo-yo` to create your own framework. We might even add some of these to `yo-yo` in the future:
 
@@ -188,10 +188,10 @@ document calls:
 
 ### CSS
 
-- [dom-css](https://npmjs.org/dom-css) - inline CSS helper
-- [csjs](https://npmjs.org/csjs) - namespaced CSS helper
+- [dom-css](https://npmjs.org/package/dom-css) - inline CSS helper
+- [csjs](https://npmjs.org/package/csjs) - namespaced CSS helper
 - [csjs-extractify](https://github.com/rtsao/csjs-extractify) - csjs browserify transform to compile css bundles
-- [csjs-injectify](https://github.com/rtsao/csjs-injectify) - csjs browserify transform that uses [insert-css](https://npmjs.org/insert-css)
+- [csjs-injectify](https://github.com/rtsao/csjs-injectify) - csjs browserify transform that uses [insert-css](https://npmjs.org/package/insert-css)
 - [sheetify](https://github.com/stackcss/sheetify) - browserify modular css transform
 - plain css files - you don't always have to use a fancy CSS module :)
 
@@ -209,7 +209,7 @@ There are also some other approaches that introduce their own patterns for manag
 
 ### bel
 
-[`bel`](https://npmjs.org/bel) is a module that takes the output from a [tagged template string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) and creates or updates (using DOM diffing) a DOM element tree.
+[`bel`](https://npmjs.org/package/bel) is a module that takes the output from a [tagged template string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) and creates or updates (using DOM diffing) a DOM element tree.
 
 ### Tagged template literals
 
@@ -345,7 +345,7 @@ Running the above sets `app` to an element with this HTML:
 
 `yo-yo` lets you do two basic things: create an element and update it. When you create an element it simply creates a new DOM element tree using hyperx and its own custom code that uses `document.createElement`.
 
-However, when you update an element using `yo.update()` it actually uses a module called [`morphdom`](https://npmjs.org/morphdom) to transform the existing DOM tree to match the new DOM tree while minimizing the number of changes to the existing DOM tree. This is a really similar approach to what `react` and `virtual-dom` do, except `morphdom` does not use a virtual DOM, it simply uses the actual DOM.
+However, when you update an element using `yo.update()` it actually uses a module called [`morphdom`](https://npmjs.com/package/morphdom) to transform the existing DOM tree to match the new DOM tree while minimizing the number of changes to the existing DOM tree. This is a really similar approach to what `react` and `virtual-dom` do, except `morphdom` does not use a virtual DOM, it simply uses the actual DOM.
 
 ## Benchmarks
 
