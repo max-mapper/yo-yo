@@ -4,7 +4,9 @@
   "description": "A tiny library for building modular UI components using DOM diffing and ES6 tagged template literals",
   "main": "index.js",
   "scripts": {
-    "test": "wzrd test.js"
+    "test": "wzrd test.js",
+    "dist": "browserify --standalone ./index.js > yo-yo.js",
+    "min": "browserify --standalone ./index.js | uglifyjs --compress --mangle --screw-ie8 > yo-yo.min.js"
   },
   "repository": {
     "type": "git",
@@ -19,11 +21,12 @@
   "homepage": "https://github.com/maxogden/yo-yo#readme",
   "dependencies": {
     "bel": "^4.0.0",
-    "morphdom": "^1.1.2"
+    "morphdom": "^2.0.1"
   },
   "devDependencies": {
     "browserify": "^13.0.1",
     "tape": "^4.5.1",
+    "uglify-js": "^2.7.0",
     "wzrd": "^1.3.1"
   }
 }
