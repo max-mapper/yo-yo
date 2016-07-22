@@ -33,7 +33,7 @@ In this way `yo-yo` is similar to the modular frameworks [mississippi](https://w
 
 You can get it [from npm](http://npmjs.org/yo-yo): `npm install yo-yo`
 
-To create a standalone copy run `browserify -r yo-yo > yo-yo.js`
+To create a standalone copy run `browserify --standalone yo index.js > yo-yo.js`
 
 ## API
 

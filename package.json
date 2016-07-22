@@ -1,6 +1,6 @@
 {
   "name": "yo-yo",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A tiny library for building modular UI components using DOM diffing and ES6 tagged template literals",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,7 @@
     "morphdom": "^2.0.1"
   },
   "devDependencies": {
+    "browserify": "^13.0.1",
     "tape": "^4.5.1",
     "wzrd": "^1.3.1"
   }
