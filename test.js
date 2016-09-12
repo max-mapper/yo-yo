@@ -45,3 +45,20 @@ test('input values get copied', function (t) {
   yo.update(el, newEl)
   t.equal(el.value, 'hi')
 })
+
+test('calls custom update method after copy', function(t) {
+  t.plan(1)
+  var el = yo`<div></div>`
+  var newEl = yo`<div>hi</div>`
+  yo.update(
+    el,
+    newEl,
+    {
+      onBeforeElUpdated: function() {
+        t.ok(true, 'called custom update method after copy')
+      }
+    }
+  )
+})
+
+
