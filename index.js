@@ -14,7 +14,7 @@ function copier(update) {
   return function(f, t) {
     // copy events:
     defaultEvents.forEach(
-      function(e, i) {
+      function(e) {
         if (t[e]) {
           f[e] = t[e]
         }
