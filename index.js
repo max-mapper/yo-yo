@@ -5,15 +5,16 @@ var morphdom = require('morphdom') // efficiently diffs + morphs two DOM element
 module.exports = bel
 module.exports.update = function(fromNode, toNode, opts) {
   opts = opts || {}
-  opts.onBeforeElUpdated = currier(opts.onBeforeElUpdated)
+  opts.onBeforeElUpdated = currier(opts.onBeforeElUpdated, opts.events)
   return morphdom(fromNode, toNode, opts)
 }
 
-function currier(update) {
+function currier(update, events) {
   update = update || function() {}
+  events = events || defaultEvents
   return function copier(f, t) {
     // copy events:
-    defaultEvents.forEach(
+    events.forEach(
       function(e) {
         if (t[e]) {
           f[e] = t[e]
