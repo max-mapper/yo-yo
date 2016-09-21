@@ -10,7 +10,6 @@ module.exports.update = function(fromNode, toNode, opts) {
 }
 
 function currier(update, events) {
-  update = update || function() {}
   events = events || defaultEvents
   return function copier(f, t) {
     // copy events:
@@ -30,6 +29,6 @@ function currier(update, events) {
       f.nodeName === 'SELECT') {
       if (t.getAttribute('value') === null) t.value = f.value
     }
-    update(f, t)
+    update? update(f, t): null
   }
 }
