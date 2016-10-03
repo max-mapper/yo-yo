@@ -45,3 +45,9 @@ test('input values get copied', function (t) {
   yo.update(el, newEl)
   t.equal(el.value, 'hi')
 })
+
+test('onload attribute called', function (t) {
+  t.plan(1)
+  var el = yo`<div onload=${() => t.pass()}>foo</div>`
+  document.body.appendChild(el)
+})
