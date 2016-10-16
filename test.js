@@ -45,3 +45,13 @@ test('input values get copied', function (t) {
   yo.update(el, newEl)
   t.equal(el.value, 'hi')
 })
+
+test('textarea values get copied', function (t) {
+  t.plan(1)
+  function textarea (val) {
+    return yo`<textarea>${val}</textarea>`
+  }
+  var el = textarea('foo')
+  yo.update(el, textarea('bar'))
+  t.equal(el.value, 'bar')
+})
