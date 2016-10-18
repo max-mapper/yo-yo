@@ -64,7 +64,6 @@ test('user supplied onBeforeElUpdated is called', function (t) {
   var el = yo`<div onclick=${yolo}>Hey there,</div>`
   var newEl = yo`<div>How you doin'?</div>`
   var opts = {
-    events: ['onclick'],
     onBeforeElUpdated: function(from, to) {
       t.ok('User supplied onBeforeElUpdated called')
       return
