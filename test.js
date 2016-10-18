@@ -55,3 +55,21 @@ test('textarea values get copied', function (t) {
   yo.update(el, textarea('bar'))
   t.equal(el.value, 'bar')
 })
+
+test('user supplied onBeforeElUpdated is called', function (t) {
+  t.plan(2)
+  function yolo (e) {
+    t.ok('Event handler called')
+  }
+  var el = yo`<div onclick=${yolo}>Hey there,</div>`
+  var newEl = yo`<div>How you doin'?</div>`
+  var opts = {
+    events: ['onclick'],
+    onBeforeElUpdated: function(from, to) {
+      t.ok('User supplied onBeforeElUpdated called')
+      return
+    }
+  }
+  yo.update(el, newEl, opts)
+  el.click()
+})
