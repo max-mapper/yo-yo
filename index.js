@@ -8,13 +8,12 @@ module.exports = bel
 module.exports.update = function (fromNode, toNode, opts) {
   if (!opts) opts = {}
   if (opts.events !== false) {
-    if (!opts.onBeforeElUpdated) opts.onBeforeElUpdated = currier(opts.onBeforeElUpdated, opts)
+    opts.onBeforeElUpdated = currier(opts.onBeforeElUpdated, opts)
   }
 
   return morphdom(fromNode, toNode, opts)
 
-  function currier (update, opts) {
-    update? update(f, t): null
+  function currier (userUpdate, opts) {
     // morphdom only copies attributes. we decided we also wanted to copy events
     // that can be set via attributes
     return function copier (f, t) {
@@ -34,6 +33,8 @@ module.exports.update = function (fromNode, toNode, opts) {
       } else if (f.nodeName === 'TEXTAREA') {
         if (t.getAttribute('value') === null) f.value = t.value
       }
+
+      userUpdate? userUpdate(f, t): null
     }
   }
 }
