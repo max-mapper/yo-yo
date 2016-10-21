@@ -72,3 +72,19 @@ test('user supplied onBeforeElUpdated is called', function (t) {
   yo.update(el, newEl, opts)
   el.click()
 })
+
+test('user supplied onBeforeElUpdated can skip copying of events', function (t) {
+  t.plan(2)
+  function a () { t.ok(true, 'called a') }
+  function b () { t.fail('this event handler should not be called') }
+  var el = yo`<button onclick=${a}>hi</button>`
+  var opts = {
+    events: false,
+    onBeforeElUpdated: function(from, to) {
+      t.ok('User supplied onBeforeElUpdated called')
+      return false
+    }
+  }
+  yo.update(el, yo`<button onclick=${b}>hi</button>`, opts)
+  el.click()
+})

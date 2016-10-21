@@ -17,6 +17,8 @@ module.exports.update = function (fromNode, toNode, opts) {
     // morphdom only copies attributes. we decided we also wanted to copy events
     // that can be set via attributes
     return function copier (f, t) {
+      var copyEvents = userUpdate? userUpdate(f, t): true
+      if (!copyEvents) { return false }
       // copy events:
       var events = opts.events || defaultEvents
       for (var i = 0; i < events.length; i++) {
@@ -34,7 +36,6 @@ module.exports.update = function (fromNode, toNode, opts) {
         if (t.getAttribute('value') === null) f.value = t.value
       }
 
-      userUpdate? userUpdate(f, t): null
     }
   }
 }
