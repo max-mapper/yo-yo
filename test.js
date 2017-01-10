@@ -37,10 +37,29 @@ test('custom event listeners and properties are ignored', function (t) {
   el.click()
 })
 
-test('input values get copied', function (t) {
+test('input value gets copied from mutating element', function (t) {
   t.plan(1)
   var el = yo`<input type="text" />`
-  el.value = 'hi'
+  var newEl = yo`<input type="text" />`
+  newEl.setAttribute('value', 'hi')
+  yo.update(el, newEl)
+  t.equal(el.value, 'hi')
+})
+
+test('input value can be cleared from mutating element', function (t) {
+  t.plan(1)
+  var el = yo`<input type="text" />`
+  el.setAttribute('value', 'hi')
+  var newEl = yo`<input type="text" />`
+  newEl.setAttribute('value', '')
+  yo.update(el, newEl)
+  t.equal(el.value, '')
+})
+
+test('input value is kept if mutating element doesn\'t have one', function (t) {
+  t.plan(1)
+  var el = yo`<input type="text" />`
+  el.setAttribute('value', 'hi')
   var newEl = yo`<input type="text" />`
   yo.update(el, newEl)
   t.equal(el.value, 'hi')
@@ -54,4 +73,13 @@ test('textarea values get copied', function (t) {
   var el = textarea('foo')
   yo.update(el, textarea('bar'))
   t.equal(el.value, 'bar')
+})
+
+test('select element selection state gets copied', function (t) {
+  t.plan(1)
+  var el = yo`<select><option>0</option><option>1</option></select>`
+  var newEl = yo`<select><option>0</option><option selected>1</option></select>`
+
+  yo.update(el, newEl)
+  t.equal(el.selectedIndex, 1)
 })
