@@ -29,6 +29,10 @@ module.exports = [
   'onfocus',
   'onblur',
   'oninput',
+  'ontouchstart',
+  'ontouchend',
+  'ontouchmove',
+  'ontouchcancel',
   // other common events
   'oncontextmenu',
   'onfocusin',
