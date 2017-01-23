@@ -46,6 +46,16 @@ test('input values get copied', function (t) {
   t.equal(el.value, 'hi')
 })
 
+test('input value gets updated', function (t) {
+    t.plan(1)
+    var el = yo`<input type="text" />`
+    el.value = 'howdy'
+    var newEl = yo`<input type="text" />`
+    newEl.value = 'hi'
+    yo.update(el, newEl)
+    t.equal(el.value, 'hi')
+})
+
 test('textarea values get copied', function (t) {
   t.plan(1)
   function textarea (val) {
