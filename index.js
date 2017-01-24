@@ -26,9 +26,15 @@ module.exports.update = function (fromNode, toNode, opts) {
         f[ev] = undefined // remove it from existing element
       }
     }
+    var oldValue = f.value
+    var newValue = t.value
     // copy values for form elements
     if ((f.nodeName === 'INPUT' && f.type !== 'file') || f.nodeName === 'SELECT') {
-      if (t.getAttribute('value') === null) t.value = f.value
+      if (!newValue) {
+        t.value = f.value
+      } else if (newValue !== oldValue) {
+        f.value = newValue
+      }
     } else if (f.nodeName === 'TEXTAREA') {
       if (t.getAttribute('value') === null) f.value = t.value
     }
