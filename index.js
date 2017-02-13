@@ -28,9 +28,10 @@ module.exports.update = function (fromNode, toNode, opts) {
     }
     var oldValue = f.value
     var newValue = t.value
+    var handlesChange = (f.oninput && t.oninput) || (f.onchange && t.onchange)
     // copy values for form elements
     if ((f.nodeName === 'INPUT' && f.type !== 'file') || f.nodeName === 'SELECT') {
-      if (!newValue) {
+      if (!newValue && !handlesChange) {
         t.value = f.value
       } else if (newValue !== oldValue) {
         f.value = newValue
