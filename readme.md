@@ -115,7 +115,7 @@ function list (items, onclick) {
         return yo`<li>${item}</li>`
       })}
     </ul>
-    <button onclick=${onclick}>Add Random Number</button>
+    <button onclick=${update}>Add Random Number</button>
   </div>`
 }
 
