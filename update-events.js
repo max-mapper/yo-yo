@@ -17,6 +17,7 @@ module.exports = [
   'onkeydown',
   'onkeypress',
   'onkeyup',
+  'onload',
   'onunload',
   'onabort',
   'onerror',
