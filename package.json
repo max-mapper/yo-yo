@@ -4,7 +4,7 @@
   "description": "A tiny library for building modular UI components using DOM diffing and ES6 tagged template literals",
   "main": "index.js",
   "scripts": {
-    "test": "wzrd test.js"
+    "test": "browserify test.js | tape-run"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,6 @@
   "devDependencies": {
     "browserify": "^13.0.1",
     "tape": "^4.5.1",
-    "wzrd": "^1.3.1"
+    "tape-run": "^2.1.4"
   }
 }
