@@ -1,6 +1,7 @@
-/*global Event*/
 var test = require('tape')
 var yo = require('./')
+
+var Event = window.Event
 
 test('event attribute gets updated', function (t) {
   t.plan(2)
@@ -40,20 +41,19 @@ test('custom event listeners and properties are ignored', function (t) {
 test('input values get copied', function (t) {
   t.plan(1)
   var el = yo`<input type="text" />`
-  el.value = 'hi'
-  var newEl = yo`<input type="text" />`
+  var newEl = yo`<input type="text" value=${'hi'} />`
   yo.update(el, newEl)
   t.equal(el.value, 'hi')
 })
 
 test('input value gets updated', function (t) {
-    t.plan(1)
-    var el = yo`<input type="text" />`
-    el.value = 'howdy'
-    var newEl = yo`<input type="text" />`
-    newEl.value = 'hi'
-    yo.update(el, newEl)
-    t.equal(el.value, 'hi')
+  t.plan(1)
+  var el = yo`<input type="text" />`
+  el.value = 'howdy'
+  var newEl = yo`<input type="text" />`
+  newEl.value = 'hi'
+  yo.update(el, newEl)
+  t.equal(el.value, 'hi')
 })
 
 test('input value can be update to empty string', function (t) {
