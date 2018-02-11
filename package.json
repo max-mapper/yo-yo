@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/maxogden/yo-yo#readme",
   "dependencies": {
-    "bel": "^4.0.0",
-    "morphdom": "~2.1.0"
+    "bel": "^5.1.6",
+    "morphdom": "^2.3.3"
   },
   "devDependencies": {
     "browserify": "^13.0.1",
