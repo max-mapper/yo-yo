@@ -2,6 +2,8 @@ var bel = require('bel') // turns template tag into DOM elements
 var morphdom = require('morphdom') // efficiently diffs + morphs two DOM elements
 var defaultEvents = require('./update-events.js') // default events to be copied when dom elements update
 
+if (morphdom.default) morphdom = morphdom.default // hack for https://github.com/maxogden/yo-yo/issues/75#issuecomment-579984499
+
 module.exports = bel
 
 // TODO move this + defaultEvents to a new module once we receive more feedback
